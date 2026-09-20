@@ -9,7 +9,7 @@ Este é o repositório do meu portfólio web interativo, desenvolvido para apres
 
 ## Demonstração
 
-🔗 [Clique aqui para acessar o portfólio online](https://seu-usuario.github.io/seu-repositorio/) *(Substitua pelo link do GitHub Pages ou seu domínio)*
+🔗 [Clique aqui para acessar o portfólio online]https://github.com/pierasiqueira
 
 ---
 
@@ -66,9 +66,9 @@ Este é o repositório do meu portfólio web interativo, desenvolvido para apres
 
 ## Contato
 
-- **LinkedIn:** [Piera Siqueira](https://www.linkedin.com/in/seu-perfil)
-- **E-mail:** [seu-email@exemplo.com](mailto:seu-email@exemplo.com)
-- **GitHub:** [@seu-usuario](https://github.com/seu-usuario)
+- **LinkedIn:** [Piera Siqueira](https://www.linkedin.com/in/pierasiqueira/)
+- **E-mail:** [psiqueira.contato@gmail.comm](mailto:psiqueira.contato@gmail.com)
+- **GitHub:** [@pierasiqueira]https://github.com/pierasiqueira
 
 ---
 
