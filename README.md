@@ -9,7 +9,7 @@ Este é o repositório do meu portfólio web interativo, desenvolvido para apres
 
 ## Demonstração
 
-🔗 [Clique aqui para acessar o portfólio online]https://github.com/pierasiqueira
+🔗 [Clique aqui para acessar o portfólio online](https://github.com/pierasiqueira)
 
 ---
 
@@ -51,7 +51,7 @@ Este é o repositório do meu portfólio web interativo, desenvolvido para apres
 
 1. **Clone este repositório:**
    ```bash
-   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+   git clone [https://github.com/pierasiqueira/Portfolio](https://github.com/pierasiqueira/Portfolioc)
    ```
 
 2. **Acesse a pasta do projeto:**

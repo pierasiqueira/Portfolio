@@ -1,17 +1,3 @@
-# Ignorar arquivos de imagem dentro da pasta /images
-images/*.png
-images/*.jpg
-images/*.jpeg
-images/*.gif
-images/*.webp
-images/*.svg
-
-# Caso queira ignorar uma subpasta específica de imagens dentro de images:
-# images/projetos/*
-
-# Exceção: Manter o favicon no repositório (opcional)
-!images/favicon.*
-
 # Arquivos do sistema operacional
 .DS_Store
 Thumbs.db
