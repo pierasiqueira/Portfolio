@@ -1,0 +1,831 @@
+/* --- 1. RESET E ESTILOS BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f4e6e6;
+    color: #1a1a1c;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+/* --- 2. MENU SUPERIOR FIXADO --- */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 25px 2%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(209, 197, 197, 0.445);
+    backdrop-filter: blur(5px);
+}
+
+.navbar nav a {
+    color: #2b2b2b;
+    text-decoration: none;
+    margin-left: 40px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #ed6ea0;
+}
+
+/* --- 3. HERO SECTION (ABERTURA) --- */
+.hero-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: 80px;
+    overflow: hidden;
+}
+
+.author-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: -200px;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    z-index: 10;
+}
+
+.hero-visual-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 520px;
+}
+
+.bg-portfolio-text {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 10.5rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    position: absolute;
+    top: -50px;
+    z-index: 1;
+    user-select: none;
+    background: linear-gradient(90deg, #ed6ea0 0%, #ec8c69 50%, #f7cf68 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.script-text {
+    font-family: 'Lucida Handwriting', cursive;
+    font-size: 4rem;
+    color: #7a0000;
+    position: absolute;
+    top: 20px;
+    z-index: 2;
+    white-space: nowrap;
+}
+
+.hero-illustration {
+    position: absolute;
+    bottom: -200px;
+    height: 710px;
+    width: auto;
+    z-index: 3;
+    object-fit: contain;
+    transform: translateX(-40px);
+}
+
+.hero-left-text {
+    position: absolute;
+    left: -15%;
+    bottom: 30px;
+    max-width: 320px;
+    z-index: 10;
+    text-align: left;
+}
+
+.hero-left-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff99d8;
+    line-height: 1.25;
+    margin-bottom: 16px;
+}
+
+.hero-left-text p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #55484f;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    font-weight: 300;
+}
+
+.hero-left-text .btn-primary {
+    display: inline-block;
+    background-color: #3e0a12;
+    color: #ffffff !important;
+    padding: 12px 28px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.hero-left-text .btn-primary:hover {
+    background-color: #ed6ea0;
+    transform: translateY(-2px);
+}
+
+.hero-services-right {
+    position: absolute;
+    right: -15%;
+    bottom: -50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    z-index: 10;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.service-text {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #55484f;
+    letter-spacing: 1px;
+    text-align: right;
+    line-height: 1.3;
+}
+
+.service-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.icon-pink   { background-color: #ebb7d4; color: #d81b60; }
+.icon-orange { background-color: #ffe0b2; color: #e65100; }
+.icon-yellow { background-color: #fff9c4; color: #f57f17; }
+.icon-purple { background-color: #ee9da4; color: #990b0b; }
+
+/* Setas Animadas do Hero */
+.scroll-arrows {
+    position: absolute;
+    bottom: -150px;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.arrow {
+    display: block;
+    width: 28px;
+    height: 28px;
+    border-right: 3px solid #3e0a12;
+    border-bottom: 3px solid #3e0a12;
+    transform: rotate(45deg);
+    margin-top: -6px;
+    animation: arrow-bounce 1.5s infinite;
+}
+
+.arrow-two {
+    animation-delay: 0.2s;
+}
+
+@keyframes arrow-bounce {
+    0%, 100% {
+        transform: rotate(45deg) translate(0, 0);
+        opacity: 0.5;
+    }
+    50% {
+        transform: rotate(45deg) translate(6px, 6px);
+        opacity: 1;
+    }
+}
+
+/* --- 4. SEÇÃO DE PROJETOS E CARROSSEL --- */
+.projects-section {
+    padding: 100px 5% 80px;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #3e0a12;
+    margin-bottom: 50px;
+}
+
+.carousel-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.projects-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 5px;
+    width: 100%;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE e Edge */
+}
+
+.projects-grid::-webkit-scrollbar {
+    display: none; /* Oculta a barra de rolagem visual */
+}
+
+.project-card {
+    flex: 0 0 calc(33.333% - 14px);
+    min-width: 280px;
+    height: 320px;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-cover {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.card-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-title-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: #ffffff;
+    text-align: left;
+}
+
+.card-title-overlay h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.carousel-arrow {
+    background-color: #3e0a12;
+    color: #ffffff;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.2s;
+    flex-shrink: 0;
+}
+
+.carousel-arrow:hover {
+    background-color: #ed6ea0;
+    transform: scale(1.1);
+}
+
+/* --- 5. MODAL DE DETALHES --- */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-container.modal-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 85vh;
+    padding: 30px;
+    position: relative;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #3e0a12;
+    z-index: 10;
+}
+
+.modal-inner {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+}
+
+.modal-left {
+    flex: 1;
+    max-width: 40%;
+    margin-top: 20px;
+}
+
+.modal-right {
+    flex: 1.2;
+    max-width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-project-title {
+    font-family: 'Playfair Display', serif;
+    color: #3e0a12;
+    margin-bottom: 15px;
+}
+
+.modal-project-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #4a4a4a;
+}
+
+.color-palette {
+    margin-top: 30px;
+}
+
+.color-palette h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #3e0a12;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.colors-container {
+    display: flex;
+    gap: 10px;
+}
+
+.color-swatch {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* --- 6. SLIDER DE MÍDIAS DO MODAL (IMAGENS VISÍVEIS + SETAS FIXAS) --- */
+
+#modal-gallery {
+    position: relative !important; /* Referência fixa obrigatória para as setas */
+    width: 100% !important;
+    min-width: 100% !important;
+    height: 380px;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ÁREA DA IMAGEM */
+.modal-slider-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-image-holder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-slide-media {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* SETAS FIXAS NAS BORDAS DO CONTAINER CINZA (DESVINCULADAS DA IMAGEM) */
+.modal-slide-btn {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 40px;
+    height: 40px;
+    background: rgba(62, 10, 18, 0.85);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+    z-index: 99 !important; /* Garante que fique acima de qualquer elemento */
+}
+
+.modal-slide-btn:hover {
+    background: rgba(237, 110, 160, 0.95);
+    transform: translateY(-50%) scale(1.1) !important;
+}
+
+/* DISTÂNCIA FIXA DAS EXTREMIDADES DA CAIXA CINZA */
+.slide-prev {
+    left: 15px !important;
+}
+
+.slide-next {
+    right: 15px !important;
+}
+
+/* CONTADOR (1/5) FIXO EM EMBAIXO À DIREITA */
+.modal-slide-counter {
+    position: absolute !important;
+    bottom: 12px !important;
+    right: 15px !important;
+    background: rgba(0, 0, 0, 0.65);
+    color: #ffffff;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    z-index: 99 !important;
+    pointer-events: none;
+}
+
+/* --- 7. RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .project-card {
+        flex: 0 0 85%;
+    }
+
+    .modal-content {
+        overflow-y: auto;
+    }
+
+    .modal-inner {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .modal-left,
+    .modal-right {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .modal-left {
+        margin-bottom: 25px;
+    }
+}
+
+/* --- SEÇÃO SOBRE MIM --- */
+.about-section {
+    padding: 100px 5% 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container {
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Foto/Ilustração */
+.about-image-wrapper {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(62, 10, 18, 0.12);
+}
+
+/* Bloco de Texto */
+.about-content {
+    flex: 1.2;
+    text-align: left;
+}
+
+/* Título Topo (Sem itálico, Negrito) */
+.about-subtitle,
+.about-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #3e0a12;
+    margin-bottom: 24px;
+    line-height: 1.3;
+}
+
+/* Parágrafos Padrão */
+.about-text,
+.about-description {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #333333;
+    margin-bottom: 15px;
+    line-height: 1.5;     /* Aumenta o respiro entre as linhas do mesmo parágrafo */
+}
+
+/* Classe para deixar o texto em Itálico como no modelo */
+.italic {
+    font-style: italic;
+}
+
+/* Título "O que posso criar para você:" */
+.about-list-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #3e0a12;
+    margin-top: 22px;
+    margin-bottom: 12px;
+}
+
+/* Estilo da Lista com Bullets */
+.about-list {
+    list-style-type: disc;
+    padding-left: 24px;
+    margin-bottom: 24px;
+}
+
+.about-list li {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.98rem;
+    color: #333333;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+/* Texto Final de Chamada */
+.about-footer-text {
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+/* Responsividade */
+@media (max-width: 868px) {
+    .about-container {
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    .about-content {
+        text-align: left;
+    }
+
+    .about-image {
+        max-width: 280px;
+    }
+}
+
+/* --- SEÇÃO DE CONTATO --- */
+.contact-section {
+    padding: 100px 5% 120px;
+    background-color: #f4e6e6;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #3e0a12;
+    margin-bottom: 12px;
+}
+
+.contact-subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    color: #55484f;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+/* Alinha os itens do lado esquerdo e direito pelo centro vertical */
+.contact-content {
+    display: flex;
+    gap: 60px;
+    text-align: left;
+    align-items: center; /* Centraliza verticalmente o bloco esquerdo com o formulário */
+}
+
+/* Lado Esquerdo - Links de Contato */
+.contact-info {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Garante alinhamento interno */
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 22px; /* Aumenta ligeiramente o respiro entre os ícones */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    color: #3e0a12;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.contact-item:hover {
+    color: #ed6ea0;
+    transform: translateX(6px);
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ebb7d4;
+    color: #3e0a12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* Lado Direito - Formulário */
+.contact-form {
+    flex: 1.2;
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(62, 10, 18, 0.08);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #3e0a12;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    border: 1.5px solid #e2d5d5;
+    border-radius: 10px;
+    background-color: #fafafa;
+    color: #1a1a1c;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ed6ea0;
+    background-color: #ffffff;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: #3e0a12;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 25px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: #ed6ea0;
+    transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-info {
+        justify-content: flex-start;
+    }
+
+    .contact-form {
+        width: 100%;
+        padding: 25px;
+    }
+}

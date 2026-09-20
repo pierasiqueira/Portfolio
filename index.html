@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Design | Piera Siqueira</title>
+
+    <!-- Favicon do site -->
+    <link rel="icon" type="image/png" href="images/favicon.png?v=2">
+    <!-- Ícone para dispositivos Apple e telemóveis -->
+    <link rel="apple-touch-icon" href="images/favicon.png">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <nav>
+            <a href="#projetos">Projetos</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- SEÇÃO HERO -->
+        <section id="hero" class="hero-screen">
+            <span class="author-name">Piera Siqueira</span>
+
+            <div class="hero-visual-container">
+                <!-- Fundo PORTFOLIO e Graphic Designer -->
+                <h1 class="bg-portfolio-text">PORTFOLIO</h1>
+                <span class="script-text">Graphic Designer</span>
+
+                <!-- Texto apresentação -->
+                <div class="hero-left-text">
+                    <h2>Transformando ideias!</h2>
+                    <p>
+                        Sou Piera, designer gráfica com foco em identidade visual, conteúdo criativo e projetos digitais que unem estética, estratégia e personalidade.
+                    </p>
+                    <a href="#projetos" class="btn-primary">Conheça meu trabalho</a>
+                </div>
+
+                <img src="images/ilustracao.png" alt="Ilustração Piera Siqueira" class="hero-illustration">
+
+                <a href="#projetos" class="scroll-arrows" aria-label="Rolar para projetos">
+                    <span class="arrow arrow-one"></span>
+                    <span class="arrow arrow-two"></span>
+                </a>
+
+                <!-- BLOCO DE SERVIÇOS (LADO DIREITO) -->
+                <div class="hero-services-right">
+                    <div class="service-item">
+                        <span class="service-text">IDENTIDADE<br>VISUAL</span>
+                        <div class="service-icon icon-pink">✦</div>
+                    </div>
+
+                    <div class="service-item">
+                        <span class="service-text">SOCIAL MEDIA<br>E DIGITAL</span>
+                        <div class="service-icon icon-orange">💻</div>
+                    </div>
+
+                    <div class="service-item">
+                        <span class="service-text">EDITORIAL<br>E IMPRESSOS</span>
+                        <div class="service-icon icon-yellow">✏️</div>
+                    </div>
+
+                    <div class="service-item">
+                        <span class="service-text">BRANDING<br>E ESTRATÉGIA</span>
+                        <div class="service-icon icon-purple">♡</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO PROJETOS -->
+        <section id="projetos" class="projects-section">
+            <h2 class="section-title">PROJETOS EM DESTAQUE</h2>
+
+            <div class="carousel-wrapper">
+                <button class="carousel-arrow prev-arrow" id="prevBtn" aria-label="Anterior">&#10094;</button>
+                <div id="projects-grid" class="projects-grid"></div>
+                <button class="carousel-arrow next-arrow" id="nextBtn" aria-label="Próximo">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- MODAL DE PROJETO -->
+        <div id="project-modal" class="modal-container">
+            <div class="modal-content brandboard-style">
+                <span class="modal-close">&times;</span>
+
+                <div class="modal-inner">
+                    <div class="modal-left">
+                        <h2 id="modal-title" class="modal-project-title"></h2>
+                        <p id="modal-desc" class="modal-project-description"></p>
+
+                        <div class="color-palette">
+                            <h4>PALETA DE CORES</h4>
+                            <div id="modal-colors" class="colors-container"></div>
+                        </div>
+                    </div>
+
+                    <div class="modal-right">
+                        <div id="modal-gallery" class="media-gallery"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO SOBRE MIM -->
+        <section id="sobre" class="about-section">
+            <div class="about-container">
+                <div class="about-image-wrapper">
+                    <img src="images/minha-foto.jpg" alt="Piera Siqueira" class="about-image">
+                </div>
+
+                <div class="about-content">
+                    <h2 class="about-title">Sobre Mim</h2>
+
+                    <p class="about-description">
+                        Olá! Sou a <strong>Piera Siqueira</strong>, designer autodidata, com trajetória prática criando identidades visuais, artes para redes sociais e pacotes visuais para criadores de conteúdo.
+                    </p>
+
+                    <p class="about-description">
+                        Atualmente, curso Análise e Desenvolvimento de Sistemas (ADS), o que me dá uma visão analítica, focada em organização e resolução de problemas.
+                    </p>
+                    
+                    <p class="about-description">
+                        Aprendo sob demanda e utilizo ferramentas como Canva, Photoshop e After Effects para entregar projetos funcionais, alinhados aos conceitos básicos de marketing e à necessidade do seu negócio.
+                    </p>            
+
+                    <h4 class="about-list-title">O que posso criar para você:</h4>
+                        
+                    <ul class="about-list">
+                        <li><em>Identidade Visual & Branding (Logotipos, Brand Boards, Paleta de Cores)</em></li>
+                        <li><em>Kit de Overlays & Banners para Livestreaming (Twitch/YouTube)</em></li>
+                        <li><em>Material Institucional & Cartões de Visita</em></li>
+                        <li><em>Artes para Redes Sociais & Peças Publicitárias</em></li>
+                    </ul>
+
+                    <p class="about-text about-footer-text">
+                        Meu objetivo é transformar sua ideia em um visual profissional, sem complicação e com foco em prazos. Vamos conversar sobre o seu projeto?
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE CONTATO -->
+        <section id="contato" class="contact-section">
+            <div class="contact-container">
+                <h2 class="contact-title">Vamos conversar?</h2>
+                <p class="contact-subtitle">
+                    Seja para criar uma nova identidade visual, desenvolver um projeto incrível ou tirar dúvidas, estou à disposição!
+                </p>
+
+                <div class="contact-content">
+                    <form class="contact-form" action="https://formspree.io/f/mljdgjvw" method="POST">
+                        <div class="form-group">
+                            <label for="name">Seu Nome</label>
+                            <input type="text" id="name" name="name" placeholder="Como gosta de ser chamado(a)?" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Seu E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="nome@exemplo.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Sua Mensagem</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Conte um pouco sobre o seu projeto ou ideia..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Enviar Mensagem</button>
+                    </form>
+                    
+                    <div class="contact-info">            
+                        <div class="contact-links">
+                            <a href="mailto:psiqueira.contato@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-item">
+                                <div class="contact-icon">✉</div>
+                                <span>psiqueira.contato@gmail.com</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/pierasiqueira/" target="_blank" rel="noopener noreferrer" class="contact-item">
+                                <div class="contact-icon">in</div>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/pierasiqueira" target="_blank" rel="noopener noreferrer" class="contact-item">
+                                <div class="contact-icon">&lt;/&gt;</div>
+                                <span>GitHub</span>
+                            </a>                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Piera Siqueira. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
