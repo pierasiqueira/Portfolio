@@ -41,11 +41,8 @@ const projectsData = {
             { type: "image", src: "images/projeto3/Horario.png" },
             { type: "image", src: "images/projeto3/Banner.png" }
         ]
-    }    
+    }
 };
-
-let currentGalleryIndex = 0;
-let currentGalleryItems = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     const projectsGrid = document.getElementById('projects-grid');
@@ -60,32 +57,91 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
 
+    // Estado da galeria do modal (escopado ao módulo)
+    let currentGalleryIndex = 0;
+    let currentGalleryItems = [];
+
+    // 1.1 Lógica do CARROSSEL (setas de avançar/recuar)
+    // Calcula a largura de 1 card + o gap para rolar exatamente 1 item por clique
+    function getCarouselStep() {
+        const firstCard = projectsGrid ? projectsGrid.querySelector('.project-card') : null;
+        if (!firstCard) return 320; // Fallback seguro caso o card ainda não exista
+
+        const cardWidth = firstCard.getBoundingClientRect().width;
+        const gridStyle = window.getComputedStyle(projectsGrid);
+        const gap = parseFloat(gridStyle.gap) || 20;
+        return Math.round(cardWidth + gap);
+    }
+
+    // Máximo de rolagem possível (fim do carrossel)
+    function getMaxScroll() {
+        return projectsGrid.scrollWidth - projectsGrid.clientWidth;
+    }
+
+    if (prevBtn && nextBtn && projectsGrid) {
+        nextBtn.addEventListener('click', () => {
+            // LOOP: se já está no último card, volta suavemente ao primeiro
+            if (projectsGrid.scrollLeft >= getMaxScroll() - 1) {
+                projectsGrid.scrollTo({ left: 0, behavior: 'smooth' });
+                return;
+            }
+            // Avança 1 card + gap para a direita (limitado ao fim)
+            projectsGrid.scrollTo({
+                left: Math.min(projectsGrid.scrollLeft + getCarouselStep(), getMaxScroll()),
+                behavior: 'smooth'
+            });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            // LOOP: se está no primeiro card, vai para o último
+            if (projectsGrid.scrollLeft <= 1) {
+                projectsGrid.scrollTo({ left: getMaxScroll(), behavior: 'smooth' });
+                return;
+            }
+            // Recua 1 card + gap para a esquerda (limitado ao início)
+            projectsGrid.scrollTo({
+                left: Math.max(projectsGrid.scrollLeft - getCarouselStep(), 0),
+                behavior: 'smooth'
+            });
+        });
+    }
+
     // 1. Renderizar os cards dinamicamente
     function renderProjectCards() {
         if (!projectsGrid) return;
-        projectsGrid.innerHTML = '';
 
-        Object.keys(projectsData).forEach(id => {
+        // Monta toda a lista numa única string e injeta de uma vez (menos manipulação de DOM)
+        const cardsHTML = Object.keys(projectsData).map((id, index) => {
             const project = projectsData[id];
-            const card = document.createElement('div');
-            card.className = 'project-card folder-style';
-            card.setAttribute('data-project-id', id);
 
-            let mediaHTML = project.cover.type === 'video'
+            // O primeiro card carrega imediatamente (evita atraso na 1ª impressão);
+            // os demais usam lazy loading para não pesar o carregamento inicial.
+            const lazyAttr = index === 0 ? '' : ' loading="lazy"';
+
+            const mediaHTML = project.cover.type === 'video'
                 ? `<video autoplay loop muted playsinline class="card-media"><source src="${project.cover.src}" type="video/mp4"></video>`
-                : `<img src="${project.cover.src}" alt="${project.cover.alt || project.title}" class="card-media">`;
+                : `<img src="${project.cover.src}" alt="${project.cover.alt || project.title}" class="card-media"${lazyAttr}>`;
 
-            card.innerHTML = `
-                <div class="card-cover">
-                    ${mediaHTML}
-                    <div class="card-title-overlay">
-                        <h3>${project.title}</h3>
+            return `
+                <div class="project-card folder-style" data-project-id="${id}">
+                    <div class="card-cover">
+                        ${mediaHTML}
+                        <div class="card-title-overlay">
+                            <h3>${project.title}</h3>
+                        </div>
                     </div>
                 </div>
             `;
+        }).join('');
 
-            card.addEventListener('click', () => openProjectModal(id));
-            projectsGrid.appendChild(card);
+        projectsGrid.innerHTML = cardsHTML;
+    }
+
+    // Delegação de eventos: 1 listener cobre todos os cards (clique em qualquer parte do card)
+    if (projectsGrid) {
+        projectsGrid.addEventListener('click', (e) => {
+            const card = e.target.closest('.project-card');
+            if (card) openProjectModal(card.dataset.projectId);
         });
     }
 
@@ -128,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.className = 'modal-slider-wrapper';
 
         let mediaElement = item.type === 'image'
-            ? `<img src="${item.src}" alt="${item.alt || ''}" class="modal-slide-media">`
+            ? `<img src="${item.src}" alt="${item.alt || ''}" class="modal-slide-media" loading="lazy">`
             : `<video src="${item.src}" autoplay loop muted playsinline class="modal-slide-media"></video>`;
 
         wrapper.innerHTML = `<div class="modal-image-holder">${mediaElement}</div>`;
@@ -176,4 +232,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     renderProjectCards();
+
+    // Funcionalidade do Menu Hambúrguer (Mobile)
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
 });

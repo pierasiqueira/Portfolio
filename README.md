@@ -40,7 +40,7 @@ Este é o repositório do meu portfólio web interativo, desenvolvido para apres
 ├── index.html          # Estrutura principal do site
 ├── style.css           # Estilização completa e responsividade
 ├── script.js          # Lógica dos projetos, modais e carrossel
-├── images/             # Imagens e assets do projeto (Ignoradas no Git)
+├── images/             # Imagens e assets do projeto (necessárias no GitHub para o deploy na Vercel)
 ├── .gitignore          # Regras do Git para arquivos ignorados
 └── README.md           # Documentação do projeto
 ```

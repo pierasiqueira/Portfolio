@@ -13,12 +13,21 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="navbar">
-        <nav>
+    <header class="navbar">   
+        <!-- Botão Hambúrguer (Escondido no Desktop) --> 
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Links de Navegação -->
+        <nav id="nav-menu">
+            <a href="#hero">Home</a>
             <a href="#projetos">Projetos</a>
             <a href="#sobre">Sobre</a>
             <a href="#contato">Contato</a>
@@ -29,8 +38,8 @@
         <!-- SEÇÃO HERO -->
         <section id="hero" class="hero-screen">
             <span class="author-name">Piera Siqueira</span>
-
             <div class="hero-visual-container">
+                
                 <!-- Fundo PORTFOLIO e Graphic Designer -->
                 <h1 class="bg-portfolio-text">PORTFOLIO</h1>
                 <span class="script-text">Graphic Designer</span>
@@ -39,7 +48,7 @@
                 <div class="hero-left-text">
                     <h2>Transformando ideias!</h2>
                     <p>
-                        Sou Piera, designer gráfica com foco em identidade visual, conteúdo criativo e projetos digitais que unem estética, estratégia e personalidade.
+                        Designer gráfica com foco em identidade visual, conteúdo criativo e projetos digitais que unem estética, estratégia e personalidade.
                     </p>
                     <a href="#projetos" class="btn-primary">Conheça meu trabalho</a>
                 </div>
@@ -88,9 +97,9 @@
         </section>
 
         <!-- MODAL DE PROJETO -->
-        <div id="project-modal" class="modal-container">
+        <div id="project-modal" class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
             <div class="modal-content brandboard-style">
-                <span class="modal-close">&times;</span>
+                <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
 
                 <div class="modal-inner">
                     <div class="modal-left">
@@ -114,7 +123,7 @@
         <section id="sobre" class="about-section">
             <div class="about-container">
                 <div class="about-image-wrapper">
-                    <img src="images/minha-foto.jpg" alt="Piera Siqueira" class="about-image">
+                    <img src="images/minha-foto.jpg" alt="Piera Siqueira" class="about-image" loading="lazy">
                 </div>
 
                 <div class="about-content">
